@@ -1,0 +1,23 @@
+---
+import '@/styles/globals.css'
+import Layout from "@/layouts/Layout.astro";
+import { ContainerContent } from '@/components/layouts/container-content';
+import { Career, Summary ,Skills} from '@/modules/about';
+import { PageHeading } from '@/components/elements/page-heading';
+import { Separator } from '@/components/ui/separator';
+import { Socials } from '@/components/layouts/socials';
+---
+
+
+<Layout title="About Page.">
+	<ContainerContent>
+		<PageHeading title="About" description='A short story about me' />
+		<Summary />
+		<Separator className="my-8" />
+		<Career	/>
+		<Separator className="my-8" />
+		<Skills />
+		<Separator className="my-8" />
+		<Socials />
+	</ContainerContent>
+</Layout>

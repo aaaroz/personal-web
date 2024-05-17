@@ -1,0 +1,18 @@
+---
+import '@/styles/globals.css'
+import Layout from "@/layouts/Layout.astro";
+import { ContainerContent } from '@/components/layouts/container-content';
+import { PageHeading } from '@/components/elements/page-heading';
+import { ContactForm, ContactList } from '@/modules/contact';
+import { Separator } from '@/components/ui/separator';
+---
+
+
+<Layout title="Contact Page.">
+	<ContainerContent>
+		<PageHeading title='Contact' description='Let&apos;s Get in Touch'/>
+		<ContactList />
+		<Separator className='my-8'/>
+		<ContactForm client:load client:only='react'/>
+	</ContainerContent>
+</Layout>

@@ -1,4 +1,27 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
+import tailwind from "@astrojs/tailwind";
+
+import node from "@astrojs/node";
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  integrations: [
+    react(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
+  image: {
+    remotePatterns: [
+      {
+        protocol: "https",
+      },
+    ],
+    domains: ["avatars.githubusercontent.com"],
+  },
+  output: "server",
+  adapter: node({
+    mode: "standalone",
+  }),
+});
