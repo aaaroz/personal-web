@@ -26,14 +26,14 @@ export const NavItem = ({
             <span className="group-[[data-collapsed=true]]:hidden">{name}</span>
           </li>
         </a>
-        <TooltipContent
-          data-ismobile={isMobile}
-          side="right"
-          className="group-[[data-collapsed=false]]:hidden data-[ismobile=true]:hidden font-semibold"
-        >
-          {name}
-        </TooltipContent>
       </TooltipTrigger>
+      <TooltipContent
+        data-ismobile={isMobile}
+        side="right"
+        className="group-[[data-collapsed=false]]:hidden data-[ismobile=true]:hidden font-semibold"
+      >
+        {name}
+      </TooltipContent>
     </Tooltip>
   );
 };
