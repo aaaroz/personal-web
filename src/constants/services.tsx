@@ -33,3 +33,8 @@ export const serviceList: TServiceItem[] = [
     hashtag: "#marketing",
   },
 ];
+
+export const serviceContent = {
+  title: "Services",
+  subTitle: "I can help you with all of these services",
+};

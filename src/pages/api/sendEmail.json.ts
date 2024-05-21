@@ -1,41 +1,11 @@
-import { render } from "@react-email/render";
-import { Resend } from "resend";
+import { sendEmail } from "@/services";
 import type { APIRoute } from "astro";
-import EmailTemplate from "@/components/emails/email-template";
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
-
-export const POST: APIRoute = async ({ params, request }) => {
+export const POST: APIRoute = async ({ request }) => {
   const data = await request.json();
-  const finalHtml = render(
-    EmailTemplate({
-      name: data.name,
-      email: data.email,
-      message: data.message,
-    }),
-    {
-      pretty: true,
-    }
-  );
-  const finalText = render(
-    EmailTemplate({
-      name: data.name,
-      email: data.email,
-      message: data.message,
-    }),
-    {
-      plainText: true,
-    }
-  );
+  const { name, email, message } = data;
 
-  const res = await resend.emails.send({
-    from: "Aaaroz Dev<onboarding@resend.dev>",
-    to: "ram.ardiansyah18@gmail.com",
-    subject: `New Message From ${data.name}`,
-    html: finalHtml,
-    text: finalText,
-    reply_to: data.email,
-  });
+  const res = await sendEmail(name, email, message);
 
   if (res.data) {
     return new Response(

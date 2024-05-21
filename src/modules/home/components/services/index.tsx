@@ -5,8 +5,7 @@ import { BiMailSend } from "react-icons/bi";
 import { SectionHeading } from "@/components/elements/section-heading";
 import { SectionSubHeading } from "@/components/elements/section-sub-heading";
 import { Button } from "@/components/ui/button";
-import { serviceList } from "@/constants/services";
-
+import { serviceContent, serviceList } from "@/constants/services";
 import { ServiceList } from "./service-list";
 
 export const Services: React.FC = (): React.ReactElement => {
@@ -14,11 +13,11 @@ export const Services: React.FC = (): React.ReactElement => {
     <section>
       <div className="space-y-2">
         <SectionHeading
-          title="Services"
+          title={serviceContent.title}
           icon={<FaServicestack className="mr-1" />}
         />
         <SectionSubHeading>
-          <h2>I can help you with all of these services</h2>
+          <h3>{serviceContent.subTitle}</h3>
         </SectionSubHeading>
       </div>
       <ServiceList items={serviceList} />

@@ -10,7 +10,7 @@ import { Separator } from '@/components/ui/separator';
 
 <Layout title="Contact | Aaaroz">
 	<ContainerContent>
-		<PageHeading title='Contact' description='Let&apos;s Get in Touch'/>
+		<PageHeading title='Contact' description='Let&apos;s Get in Touch' transition:name='page-heading'/>
 		<ContactList />
 		<Separator className='my-8'/>
 		<ContactForm client:load client:only='react'/>

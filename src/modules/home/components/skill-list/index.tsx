@@ -8,6 +8,7 @@ import { InfiniteMovingElement } from "@/components/ui/infinite-moving-element";
 
 import { BiLoader } from "react-icons/bi";
 import { SkillCard } from "@/components/elements/skill-card";
+import { skillContent } from "@/constants/skill-list";
 
 export const SkillList: React.FC = (): React.ReactElement => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
@@ -23,9 +24,12 @@ export const SkillList: React.FC = (): React.ReactElement => {
     return (
       <section className="space-y-6">
         <div className="space-y-2">
-          <SectionHeading title="Skills" icon={<HiCode className="mr-1" />} />
+          <SectionHeading
+            title={skillContent.title}
+            icon={<HiCode className="mr-1" />}
+          />
           <SectionSubHeading>
-            <p>My coding skills</p>
+            <p>{skillContent.subTitle}</p>
           </SectionSubHeading>
         </div>
         <div className="rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
@@ -37,9 +41,12 @@ export const SkillList: React.FC = (): React.ReactElement => {
   return (
     <section className="space-y-6">
       <div className="space-y-2">
-        <SectionHeading title="Skills" icon={<HiCode className="mr-1" />} />
+        <SectionHeading
+          title={skillContent.title}
+          icon={<HiCode className="mr-1" />}
+        />
         <SectionSubHeading>
-          <p>My coding skills</p>
+          <p>{skillContent.subTitle}</p>
         </SectionSubHeading>
       </div>
       <div className="rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
