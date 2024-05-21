@@ -2,7 +2,7 @@ import * as React from "react";
 import type { SocialMedia } from "@/types/social-media";
 import { cn } from "@/lib/utils";
 
-export const ContactCard = ({
+export const ContactCard: React.FC<SocialMedia> = ({
   title,
   bgColor,
   icon,

@@ -2,7 +2,7 @@ import * as React from "react";
 import { socialMedia } from "@/constants/social-media";
 import { RiMailFill } from "react-icons/ri";
 
-export const Socials = (): React.ReactElement => {
+export const Socials: React.FC = (): React.ReactElement => {
   return (
     <section className="flex flex-col gap-3 justify-center items-center">
       <h2 className="font-medium">Reach me out</h2>
@@ -18,9 +18,6 @@ export const Socials = (): React.ReactElement => {
             {item.icon}
           </a>
         ))}
-        <a className="text-2xl" href="/contact">
-          <RiMailFill size={24} />
-        </a>
       </div>
     </section>
   );

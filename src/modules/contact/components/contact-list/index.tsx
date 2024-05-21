@@ -3,7 +3,7 @@ import * as React from "react";
 import { ContactCard } from "./contact-card";
 import { SectionHeading } from "@/components/elements/section-heading";
 
-export const ContactList = (): React.ReactElement => {
+export const ContactList: React.FC = (): React.ReactElement => {
   return (
     <section className="flex flex-col gap-6">
       <SectionHeading title="Find me on" />

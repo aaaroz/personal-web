@@ -5,7 +5,7 @@ interface SkillCardProps {
   icon: React.ReactElement;
 }
 
-export const SkillCard = ({
+export const SkillCard: React.FC<SkillCardProps> = ({
   name,
   icon,
 }: SkillCardProps): React.ReactElement => {

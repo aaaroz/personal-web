@@ -5,7 +5,7 @@ interface PageHeadingProps {
   description?: string;
 }
 
-export const PageHeading = ({
+export const PageHeading: React.FC<PageHeadingProps> = ({
   title,
   description,
 }: PageHeadingProps): React.ReactElement => {

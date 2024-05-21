@@ -3,7 +3,7 @@ import { TooltipProvider } from "../ui/tooltip";
 import { NavItem } from "./nav-item";
 import type { NavItemProps, NavProps } from "@/types/nav";
 
-export const Nav = ({
+export const Nav: React.FC<NavProps> = ({
   list,
   pathname,
   isMobile,

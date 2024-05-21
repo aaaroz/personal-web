@@ -4,7 +4,7 @@ interface SectionSubHeadingProps {
   children?: React.ReactNode;
 }
 
-export const SectionSubHeading = ({
+export const SectionSubHeading: React.FC<SectionSubHeadingProps> = ({
   children,
 }: SectionSubHeadingProps): React.ReactElement => {
   return (

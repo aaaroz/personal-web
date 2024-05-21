@@ -6,7 +6,7 @@ interface ServiceListProps {
   items: TServiceItem[];
 }
 
-export const ServiceList = ({
+export const ServiceList: React.FC<ServiceListProps> = ({
   items,
 }: ServiceListProps): React.ReactElement => {
   return (

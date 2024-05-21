@@ -9,7 +9,7 @@ import { InfiniteMovingElement } from "@/components/ui/infinite-moving-element";
 import { BiLoader } from "react-icons/bi";
 import { SkillCard } from "@/components/elements/skill-card";
 
-export const SkillList = (): React.ReactElement => {
+export const SkillList: React.FC = (): React.ReactElement => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
   const stacksInArray: Array<[string, React.ReactElement]> = Object.entries(
     STACKS

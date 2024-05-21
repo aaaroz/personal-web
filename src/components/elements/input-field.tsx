@@ -9,7 +9,7 @@ import type {
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
-type RadioInputProps<TFormValue extends FieldValues> = {
+type InputFieldProps<TFormValue extends FieldValues> = {
   register: UseFormRegister<TFormValue>;
   name: Path<TFormValue>;
   error: FieldErrors;
@@ -27,7 +27,7 @@ export default function InputField<TFormValue extends FieldValues>({
   placeholder = "",
   rows = 2,
   register,
-}: RadioInputProps<TFormValue>) {
+}: InputFieldProps<TFormValue>) {
   const renderPlaceholder =
     placeholder || name.charAt(0).toUpperCase() + name.slice(1);
   return (
@@ -42,12 +42,12 @@ export default function InputField<TFormValue extends FieldValues>({
         <Input placeholder={renderPlaceholder} {...register(name, rule)} />
       )}
       {error[name]?.type === "required" && (
-        <p role="alert" className="text-[10px] text-red-400">
+        <p role="alert" className="text-[10px] text-red-500">
           *{name} is required
         </p>
       )}
       {error[name]?.type === "pattern" && (
-        <p role="alert" className="text-[10px] text-red-400">
+        <p role="alert" className="text-[10px] text-red-500">
           *{String(error[name]?.message)}
         </p>
       )}

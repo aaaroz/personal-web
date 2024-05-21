@@ -7,7 +7,9 @@ interface TopbarProps {
   pathname: string;
 }
 
-export const Topbar = ({ pathname }: TopbarProps): React.ReactElement => {
+export const Topbar: React.FC<TopbarProps> = ({
+  pathname,
+}: TopbarProps): React.ReactElement => {
   return (
     <header className="sticky top-0 z-50 flex sm:hidden p-4 items-center justify-between bg-background/40 backdrop-blur-md bg-opacity-25">
       <div className="flex gap-3 items-center justify-center">

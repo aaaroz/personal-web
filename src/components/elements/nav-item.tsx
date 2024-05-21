@@ -2,7 +2,7 @@ import * as React from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import type { NavItemProps } from "@/types/nav";
 
-export const NavItem = ({
+export const NavItem: React.FC<NavItemProps> = ({
   href,
   name,
   icon,

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { TypeAnimation } from "@/components/elements/type-animation";
 
-export const Introduction = (): React.ReactElement => {
+export const Introduction: React.FC = (): React.ReactElement => {
   return (
     <section className="space-y-2">
       <div className="font-serif flex gap-2 text-2xl font-medium lg:text-3xl">

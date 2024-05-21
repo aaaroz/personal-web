@@ -1,11 +1,11 @@
+import * as React from "react";
+import { HiCode } from "react-icons/hi";
 import { SectionHeading } from "@/components/elements/section-heading";
 import { SectionSubHeading } from "@/components/elements/section-sub-heading";
 import { SkillCard } from "@/components/elements/skill-card";
 import { STACKS } from "@/constants/stacks";
-import * as React from "react";
-import { HiCode } from "react-icons/hi";
 
-export const Skills = (): React.ReactElement => {
+export const Skills: React.FC = (): React.ReactElement => {
   const stacksInArray: Array<[string, React.ReactElement]> =
     Object.entries(STACKS);
   return (

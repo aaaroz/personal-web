@@ -16,11 +16,13 @@ import { listItems } from "@/constants/nav";
 import { Footer } from "../layouts/footer";
 import { Separator } from "../ui/separator";
 
-export const DrawerToggle = ({
-  pathname,
-}: {
+interface DrawerToggleProps {
   pathname: string;
-}): React.ReactElement => {
+}
+
+export const DrawerToggle: React.FC<DrawerToggleProps> = ({
+  pathname,
+}: DrawerToggleProps): React.ReactElement => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
 
   React.useEffect(() => {

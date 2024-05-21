@@ -6,7 +6,7 @@ interface SectionHeadingProps {
   icon?: React.ReactNode;
 }
 
-export const SectionHeading = ({
+export const SectionHeading: React.FC<SectionHeadingProps> = ({
   title,
   icon,
   className = "",

@@ -3,7 +3,12 @@ import { BiSolidDownvote } from "react-icons/bi";
 
 export const DownloadResume = (): React.ReactElement => {
   return (
-    <button className="group flex items-center gap-2 text-muted-foreground font-semibold transition-all duration-300 hover:text-muted-foreground/80 hover:underline">
+    <a
+      href="https://drive.google.com/file/d/1VjIZkMgMgKYg-5jE6IqxUpP_0_jmg0j2/view?usp=sharing"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-2 text-muted-foreground font-semibold transition-all duration-300 hover:text-muted-foreground/80 hover:underline"
+    >
       <div
         data-testid="download-icon-container"
         className="overflow-hidden border-b-2 border-muted-foreground group-hover:border-muted-foreground/80"
@@ -14,6 +19,6 @@ export const DownloadResume = (): React.ReactElement => {
         />
       </div>
       <span>Download Resume</span>
-    </button>
+    </a>
   );
 };

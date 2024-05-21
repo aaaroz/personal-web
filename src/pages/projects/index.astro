@@ -4,12 +4,16 @@ import Layout from "@/layouts/Layout.astro";
 import { ContainerContent } from '@/components/layouts/container-content';
 import { PageHeading } from '@/components/elements/page-heading';
 import { Projects } from '@/modules/projects';
+import { Separator } from '@/components/ui/separator';
+import { Socials } from '@/components/layouts/socials';
 ---
 
 
-<Layout title="Projects Page.">
+<Layout title="Projects | Aaaroz">
 	<ContainerContent>
 		<PageHeading title='Projects' description='Embark on a Digital Odyssey : Witness My Journey Through Code'/>
 		<Projects client:load/>
+		<Separator className="my-8" />
+		<Socials />
 	</ContainerContent>
 </Layout>

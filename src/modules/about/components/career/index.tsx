@@ -7,7 +7,7 @@ import { DownloadResume } from "@/components/elements/download-resume";
 import { careerList } from "@/constants/careers";
 import { CareerList } from "./career-list";
 
-export const Career = (): React.ReactElement => {
+export const Career: React.FC = (): React.ReactElement => {
   return (
     <section className="space-y-2">
       <SectionHeading

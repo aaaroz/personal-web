@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { TServiceItem } from "@/types/service";
 
-export const ServiceCard = ({
+export const ServiceCard: React.FC<TServiceItem> = ({
   title,
   description,
   hashtag,

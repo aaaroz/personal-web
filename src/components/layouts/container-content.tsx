@@ -1,13 +1,15 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export const ContainerContent = ({
-  children,
-  className,
-}: {
+interface ContainerContentProps {
   children: React.ReactNode;
   className?: string;
-}) => {
+}
+
+export const ContainerContent: React.FC<ContainerContentProps> = ({
+  children,
+  className,
+}: ContainerContentProps) => {
   return (
     <div
       className={cn(

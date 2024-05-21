@@ -11,7 +11,7 @@ import { STACKS } from "@/constants/stacks";
 import { BsGithub, BsGlobe } from "react-icons/bs";
 import { ArrowUpRight } from "lucide-react";
 
-export const ProjectCard = ({
+export const ProjectCard: React.FC<TProjectItem> = ({
   title,
   description,
   image,
@@ -24,9 +24,9 @@ export const ProjectCard = ({
     description.slice(0, 70) + (description.length > 70 ? "..." : "");
   return (
     <TooltipProvider>
-      <Card className="relative z-0 cursor-pointer border border-border transition-all duration-300 bg-accent">
+      <Card className="relative z-0 border border-border transition-all duration-300 bg-accent">
         {is_featured && (
-          <div className="absolute right-0 top-0 z-[2] rounded-bl-lg rounded-tr-lg bg-emerald-300 px-2 py-1 text-[13px] font-medium text-emerald-950">
+          <div className="absolute right-0 top-0 z-[2] rounded-bl-lg rounded-tr-lg bg-primary px-2 py-1 text-[13px] font-medium text-primary-foreground">
             Featured
           </div>
         )}
@@ -35,7 +35,7 @@ export const ProjectCard = ({
           width={400}
           height={200}
           alt={title}
-          className="h-48 rounded-t-xl object-cover object-center hover:scale-[102%] transition-all duration-300"
+          className="h-48 rounded-t-lg object-cover object-center w-full md:max-w-[400px] hover:scale-[102%] transition-all duration-300"
         />
         <div className="space-y-2 p-5">
           <div className="flex justify-between cursor-pointer text-lg text-foreground font-semibold ">
@@ -83,13 +83,20 @@ export const ProjectCard = ({
               </Tooltip>
             </span>
           </div>
-          <p className="text-[15px] leading-relaxed text-neutral-700 dark:text-neutral-400">
-            {trimmedContent}
-          </p>
+          <Tooltip delayDuration={0}>
+            <TooltipTrigger>
+              <p className="text-left text-[15px] leading-relaxed text-neutral-700 dark:text-neutral-400">
+                {trimmedContent}
+              </p>
+            </TooltipTrigger>
+            <TooltipContent side="top" className="w-[300px]">
+              {description}
+            </TooltipContent>
+          </Tooltip>
           <div className="flex flex-wrap items-center gap-3 pt-2">
             {stacks?.map((stack: string, index: number) => (
-              <Tooltip delayDuration={0}>
-                <div key={index} className="w-6">
+              <Tooltip key={index} delayDuration={0}>
+                <div className="w-6">
                   <TooltipTrigger>{STACKS[stack]}</TooltipTrigger>
                   <TooltipContent side="top">{stack}</TooltipContent>
                 </div>

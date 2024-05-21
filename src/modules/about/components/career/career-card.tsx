@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import type { TCareerItem } from "@/types/career";
 
-export const CareerCard = ({
+export const CareerCard: React.FC<TCareerItem> = ({
   imageUrl,
   position,
   company,

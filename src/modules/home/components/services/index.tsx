@@ -9,7 +9,7 @@ import { serviceList } from "@/constants/services";
 
 import { ServiceList } from "./service-list";
 
-export const Services = (): React.ReactElement => {
+export const Services: React.FC = (): React.ReactElement => {
   return (
     <section>
       <div className="space-y-2">

@@ -1,4 +1,5 @@
 import * as React from "react";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import InputField from "@/components/elements/input-field";
 import { Button } from "@/components/ui/button";
@@ -10,7 +11,7 @@ interface IFormEmail {
   message: string;
 }
 
-export const ContactForm = (): React.ReactElement => {
+export const ContactForm: React.FC = (): React.ReactElement => {
   const {
     register,
     handleSubmit,
@@ -26,9 +27,8 @@ export const ContactForm = (): React.ReactElement => {
   async function handleFormSubmit(payload: IFormEmail) {
     setIsLoading(true);
     try {
-      //   const response = await axios.post("/api/email", payload);
-      //   if (response.status === 200) setIsSuccess(true);
-      console.log(payload);
+      const response = await axios.post("/api/sendEmail.json", payload);
+      if (response.status === 200) setIsSuccess(true);
       reset();
       setIsLoading(false);
     } catch (error) {

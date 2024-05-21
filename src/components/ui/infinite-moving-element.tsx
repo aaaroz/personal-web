@@ -1,19 +1,21 @@
 import { cn } from "@/lib/utils";
 import * as React from "react";
 
-export const InfiniteMovingElement = ({
-  children,
-  direction = "left",
-  speed = "fast",
-  pauseOnHover = true,
-  className,
-}: {
+interface InfiniteMovingElementProps {
   children: React.ReactNode;
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
   className?: string;
-}): React.ReactElement => {
+}
+
+export const InfiniteMovingElement: React.FC<InfiniteMovingElementProps> = ({
+  children,
+  direction = "left",
+  speed = "fast",
+  pauseOnHover = true,
+  className,
+}: InfiniteMovingElementProps): React.ReactElement => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLDivElement>(null);
 

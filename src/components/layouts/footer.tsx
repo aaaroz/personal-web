@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const Footer = (): React.ReactElement => {
+export const Footer: React.FC = (): React.ReactElement => {
   return (
     <footer className="flex flex-col justify-end items-start">
       <div className="group-[[data-collapsed=true]]:space-x-1 space-x-2 text-sm">

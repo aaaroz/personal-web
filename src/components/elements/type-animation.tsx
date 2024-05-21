@@ -6,7 +6,7 @@ interface TypeAnimationProps {
   sequence: string[];
   delay?: number;
 }
-export const TypeAnimation = ({
+export const TypeAnimation: React.FC<TypeAnimationProps> = ({
   sequence,
   delay = 1000,
 }: TypeAnimationProps): React.ReactElement => {
