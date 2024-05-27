@@ -21,7 +21,7 @@ export const Services: React.FC = (): React.ReactElement => {
         </SectionSubHeading>
       </div>
       <ServiceList items={serviceList} />
-      <a href="mailto:ram.ardiansyah18@gmail.com">
+      <a href="/contact" aria-label="Hire Me">
         <Button className="font-semibold">
           Hire Me <BiMailSend className="ml-2 w-5 h-5" />
         </Button>

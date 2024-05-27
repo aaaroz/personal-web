@@ -11,12 +11,7 @@ export const ContainerContent: React.FC<ContainerContentProps> = ({
   className,
 }: ContainerContentProps) => {
   return (
-    <div
-      className={cn(
-        "mt-2 mb-10 sm:mt-12 sm:mb-14 sm:px-5 overflow-y-auto",
-        className
-      )}
-    >
+    <div className={cn("mt-2 mb-10 sm:mt-12 sm:mb-14 sm:px-5", className)}>
       {children}
     </div>
   );

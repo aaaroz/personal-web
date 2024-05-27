@@ -31,11 +31,14 @@ export const Sidebar = ({
   return (
     <aside
       data-collapsed={isCollapsed}
-      className="group hidden sticky top-0 sm:flex flex-col justify-between min-w-60 space-y-5 py-10 max-h-screen data-[collapsed=true]:min-w-10  data-[collapsed=true]:max-w-12"
+      className="group hidden sticky z-50 top-0 sm:flex flex-col justify-between min-w-60 space-y-5 py-10 max-h-screen data-[collapsed=true]:min-w-10  data-[collapsed=true]:max-w-12"
     >
       <section className="group-[[data-collapsed=true]]:flex-col group-[[data-collapsed=true]]:gap-3 flex justify-between items-center w-full">
         <Avatar>
-          <AvatarImage src="https://avatars.githubusercontent.com/u/136713175?v=4" />
+          <AvatarImage
+            src="https://avatars.githubusercontent.com/u/136713175?v=4"
+            alt="avatar"
+          />
           <AvatarFallback>ZR</AvatarFallback>
         </Avatar>
         <div>

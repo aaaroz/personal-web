@@ -9,9 +9,9 @@ export const Nav: React.FC<NavProps> = ({
   isMobile,
 }: NavProps): React.ReactElement => {
   return (
-    <nav className="w-full">
-      <TooltipProvider>
-        <ul className="flex flex-col gap-3">
+    <TooltipProvider>
+      <nav className="w-full">
+        <div className="flex flex-col gap-3">
           {list?.map((item: NavItemProps, index: number) => {
             pathname === item.href
               ? (item.isActive = true)
@@ -27,8 +27,8 @@ export const Nav: React.FC<NavProps> = ({
               />
             );
           })}
-        </ul>
-      </TooltipProvider>
-    </nav>
+        </div>
+      </nav>
+    </TooltipProvider>
   );
 };

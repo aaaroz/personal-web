@@ -1,6 +1,5 @@
 import * as React from "react";
 import { socialMedia } from "@/constants/social-media";
-import { RiMailFill } from "react-icons/ri";
 
 export const Socials: React.FC = (): React.ReactElement => {
   return (
@@ -14,6 +13,7 @@ export const Socials: React.FC = (): React.ReactElement => {
             target="_blank"
             rel="noopener noreferrer"
             key={i}
+            title={item.title}
           >
             {item.icon}
           </a>
