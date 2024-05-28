@@ -1,13 +1,33 @@
 ---
+import '@/styles/globals.css'
+import { ViewTransitions } from 'astro:transitions';
+import { SEO } from "astro-seo"
+import { seoConfig } from '@/utils/seo-config';
 import { Sidebar } from '@/components/layouts/sidebar'
 import { Topbar } from '@/components/layouts/topbar';
-import { ViewTransitions } from 'astro:transitions';
 
-interface Props {
-	title: string;
+
+
+
+export interface Props {
+	title: string
+	ogTitle?: string
+	description?: string
+	image?: {
+		url: string
+		alt: string
+	}
+	disableIndexing?: boolean
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	ogTitle,
+	description,
+	image,
+	disableIndexing = false
+} = Astro.props as Props
+
 const pathname = Astro.url.pathname
 ---
 
@@ -36,11 +56,117 @@ document.addEventListener('astro:after-swap', () => {
 <!doctype html>
 <html lang="en">
 	<head>
+		<SEO
+			title={title}
+			description={seoConfig.description || description}
+			noindex={disableIndexing}
+			nofollow={disableIndexing}
+			openGraph={{
+				basic: {
+					title: ogTitle || title,
+					type: "website",
+					image: seoConfig.image.url || image!.url
+				},
+				image: {
+					width: seoConfig.image.width,
+					height: seoConfig.image.height,
+					alt: seoConfig.image.alt || image!.alt
+				},
+				optional: {
+					siteName: seoConfig.siteName,
+					description: seoConfig.description || description
+				}
+			}}
+		/>
+
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+		rel="apple-touch-icon"
+		sizes="57x57"
+		href="/favicons/favicon-57x57.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="60x60"
+			href="/favicons/favicon-60x60.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="72x72"
+			href="/favicons/favicon-72x72.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="76x76"
+			href="/favicons/favicon-76x76.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="114x114"
+			href="/favicons/favicon-114x114.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="120x120"
+			href="/favicons/favicon-120x120.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="144x144"
+			href="/favicons/favicon-144x144.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="152x152"
+			href="/favicons/favicon-152x152.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/favicons/favicon-180x180.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicons/favicon-16x16.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicons/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="96x96"
+			href="/favicons/favicon-96x96.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="/favicons/favicon-192x192.png"
+		/>
+		<link
+			rel="shortcut icon"
+			type="image/x-icon"
+			href="/favicons/favicon.ico"
+		/>
+		
+		<link rel="icon" type="image/x-icon" href="/favicons/favicon.ico" />
+		<meta name="msapplication-TileColor" content="#2986CC" />
+		<meta
+			name="msapplication-TileImage"
+			content="/favicons/favicon-144x144.png"
+		/>
+		<meta name="msapplication-config" content="/browserconfig.xml" />
+		<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+		<meta name="theme-color" content="#2986CC" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+
 		<title>{title}</title>
 		<ViewTransitions />
 	</head>
@@ -48,9 +174,12 @@ document.addEventListener('astro:after-swap', () => {
 		<Topbar client:load pathname={pathname}/>
 		<main class="container flex gap-5 lg:max-w-5xl min-h-screen">
 			<Sidebar client:load pathname={pathname}/>
-			<section class="w-full" transition:animate="slide">
+			<section class="w-full overflow-hidden" transition:animate="slide">
 				<slot />
 			</section>
 		</main>
+		<script>
+
+		</script>
 	</body>
 </html>
