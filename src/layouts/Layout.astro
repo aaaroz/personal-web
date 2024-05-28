@@ -112,7 +112,7 @@ document.addEventListener('astro:after-swap', () => {
 	</head>
 	<body>
 		<Topbar client:load pathname={pathname}/>
-		<main class="container flex gap-5 lg:max-w-5xl min-h-screen">
+		<main class="container sm:flex gap-5 lg:max-w-5xl min-h-screen">
 			<section transition:animate="none">
 				<Sidebar client:load pathname={pathname}/>
 			</section>
