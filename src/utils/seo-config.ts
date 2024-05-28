@@ -15,7 +15,7 @@ export const seoConfig = {
   },
   siteName: "Aaaroz Dev ",
   twitter: {
-    card: "summary_large_image",
+    card: "summary_large_image" as const,
   },
 };
 

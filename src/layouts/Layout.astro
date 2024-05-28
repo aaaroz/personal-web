@@ -61,6 +61,9 @@ document.addEventListener('astro:after-swap', () => {
 			description={seoConfig.description || description}
 			noindex={disableIndexing}
 			nofollow={disableIndexing}
+			twitter={{
+				card: seoConfig.twitter.card 
+			}}
 			openGraph={{
 				basic: {
 					title: ogTitle || title,
@@ -77,6 +80,7 @@ document.addEventListener('astro:after-swap', () => {
 					description: seoConfig.description || description
 				}
 			}}
+		
 		/>
 
 		<meta charset="UTF-8" />
