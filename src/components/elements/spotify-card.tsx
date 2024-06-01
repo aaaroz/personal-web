@@ -10,18 +10,22 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip";
 import { ArrowUpRight } from "lucide-react";
+import { BiLoaderAlt } from "react-icons/bi";
 
 const profilUrl =
   "https://open.spotify.com/user/31ylfld3yi6bdgs4ghg3tn6hb2ka?si=778a54b4b6514f03";
 
 export const SpotifyCard: React.FC = (): React.ReactElement => {
   const [data, setData] = React.useState<SpotifyRespond | null>(null);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   React.useEffect(() => {
+    setIsLoading(true);
     const getData = async () => {
       try {
         const res = await axios.get("/api/spotify.json");
         setData(res.data);
+        setIsLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -46,40 +50,47 @@ export const SpotifyCard: React.FC = (): React.ReactElement => {
               "lg:w-60 group-[[data-collapsed=true]]:hidden"
             )}
           >
-            <div className="w-16">
-              {data?.isPlaying ? (
-                <div className="flex gap-3">
-                  <img
-                    className="h-14 w-14"
-                    src={data.albumImageUrl}
-                    alt={data.album}
-                    width={64}
-                    height={64}
-                  />
-                  <div className="flex flex-col space-y-1 w-20">
-                    <p className="font-medium leading-none">{data.title}</p>
-                    <p className="mt-1 text-xs">{data.artist}</p>
+            {isLoading ? (
+              <BiLoaderAlt
+                size={48}
+                color={"#1ED760"}
+                className="animate-spin"
+              />
+            ) : (
+              <div className="w-16">
+                {data?.isPlaying ? (
+                  <div className="flex gap-3">
+                    <img
+                      className="h-14 w-14"
+                      src={data.albumImageUrl}
+                      alt={data.album}
+                      width={64}
+                      height={64}
+                    />
+                    <div className="flex flex-col space-y-1 w-20">
+                      <p className="font-medium leading-none">{data.title}</p>
+                      <p className="mt-1 text-xs">{data.artist}</p>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <div className="flex gap-3">
-                  <span>
-                    <SiSpotify size={56} color={"#1ED760"} />
-                  </span>
-                  <div className="flex flex-col space-y-1 w-20">
-                    <p className="font-medium leading-none">Not Listening</p>
-                    <p className="mt-1 text-xs">Spotify</p>
+                ) : (
+                  <div className="flex gap-3">
+                    <span>
+                      <SiSpotify size={56} color={"#1ED760"} />
+                    </span>
+                    <div className="flex flex-col space-y-1 w-20">
+                      <p className="font-medium leading-none">Not Listening</p>
+                      <p className="mt-1 text-xs">Spotify</p>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
             <div className="absolute bottom-2 right-2">
               <SiSpotify size={20} color={"#1ED760"} />
             </div>
             <div className="absolute top-2 right-2">
               <ArrowUpRight size={16} />
             </div>
-            
           </a>
         </TooltipTrigger>
         <TooltipContent>
