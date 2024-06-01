@@ -113,7 +113,7 @@ document.addEventListener('astro:after-swap', () => {
 	<body>
 		<Topbar client:load pathname={pathname}/>
 		<main class="container sm:flex gap-5 lg:max-w-5xl min-h-screen">
-			<section transition:animate="none">
+			<section transition:animate="none" class="z-50 sticky top-0 left-0" aria-label="Sidebar">
 				<Sidebar client:load pathname={pathname}/>
 			</section>
 			<section class="w-full overflow-hidden" transition:animate="slide">

@@ -57,7 +57,7 @@ export const SpotifyCard: React.FC = (): React.ReactElement => {
                 className="animate-spin"
               />
             ) : (
-              <div className="w-16">
+              <div className="w-full">
                 {data?.isPlaying ? (
                   <div className="flex gap-3">
                     <img
@@ -67,9 +67,11 @@ export const SpotifyCard: React.FC = (): React.ReactElement => {
                       width={64}
                       height={64}
                     />
-                    <div className="flex flex-col space-y-1 w-20">
-                      <p className="font-medium leading-none">{data.title}</p>
-                      <p className="mt-1 text-xs">{data.artist}</p>
+                    <div className="flex flex-col space-y-1 w-32">
+                      <p className="font-medium leading-none line-clamp-2 overflow-hidden">
+                        {data.title}
+                      </p>
+                      <p className="mt-1 text-xs line-clamp-2">{data.artist}</p>
                     </div>
                   </div>
                 ) : (
