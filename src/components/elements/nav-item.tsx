@@ -12,7 +12,7 @@ export const NavItem: React.FC<NavItemProps> = ({
   return (
     <Tooltip delayDuration={0}>
       <TooltipTrigger asChild>
-        <a href={href} title="navigation-item">
+        <a href={href} title={name}>
           <span
             className={`relative cursor-pointer flex justify-start items-center group-[[data-collapsed=true]]:pl-3 pl-10 py-2 rounded-md hover:pl-12 gap-2 hover:gap-3 text-foreground font-semibold transition-all duration-300 hover:text-foreground/90 ${
               isActive
