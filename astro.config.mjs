@@ -24,7 +24,7 @@ export default defineConfig({
         protocol: "https",
       },
     ],
-    domains: ["avatars.githubusercontent.com"],
+    domains: ["avatars.githubusercontent.com", "res.cloudinary.com"],
   },
   output: "server",
   adapter: vercel(),

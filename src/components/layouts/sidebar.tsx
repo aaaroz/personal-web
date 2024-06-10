@@ -36,7 +36,7 @@ export const Sidebar = ({
       <section className="group-[[data-collapsed=true]]:flex-col group-[[data-collapsed=true]]:gap-3 flex justify-between items-center w-full">
         <Avatar>
           <AvatarImage
-            src="https://avatars.githubusercontent.com/u/136713175?v=4"
+            src="https://res.cloudinary.com/dyjkun2zo/image/upload/v1717994181/aaroz.jpg"
             alt="avatar"
           />
           <AvatarFallback>ZR</AvatarFallback>
